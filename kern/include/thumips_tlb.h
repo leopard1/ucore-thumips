@@ -43,7 +43,10 @@ static inline void tlb_replace_random(unsigned int pagemask, unsigned int hi, un
 	write_c0_pagemask(pagemask);
 	write_c0_entrylo1(low1);
 	write_c0_entryhi(hi);
-  tlb_write_random();
+  static unsigned int index = 0;
+  write_c0_index(index & 0x0000000F);
+  index++;
+  tlb_write_indexed();
 }
 
 #define PTE2TLBLOW(x) (((((uint32_t)(*(x))-KERNBASE)>> 12)<<6)|THUMIPS_TLB_ENTRYL_V|THUMIPS_TLB_ENTRYL_D|(2<<3))

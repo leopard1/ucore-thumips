@@ -1305,14 +1305,6 @@ static inline void tlb_write_indexed(void)
 		".set reorder");
 }
 
-static inline void tlb_write_random(void)
-{
-	__asm__ __volatile__(
-		".set noreorder\n\t"
-		"tlbwr\n\t"
-		".set reorder");
-}
-
 /*
  * Manipulate bits in a c0 register.
  */
