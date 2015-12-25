@@ -5,8 +5,8 @@
 
 #define KERNBASE            0x80000000
 
-#ifdef MACH_FPGA            
-#define KMEMSIZE            (1 << 20)
+#ifdef MACH_FPGA
+#define KMEMSIZE            (8 << 20)
 #else
 #define KMEMSIZE            (32 << 20)                 // 512M the maximum amount of physical memory
 #endif
@@ -17,7 +17,7 @@
 #define KSTACKSIZE          (KSTACKPAGE * 4096)       // sizeof kernel stack
 
 #define USERBASE            0x10000000
-#define USERTOP             MIPS_KSEG0 
+#define USERTOP             MIPS_KSEG0
 
 #define USTACKTOP           USERTOP
 #define USTACKPAGE          16                         // # of pages in user stack
@@ -96,4 +96,3 @@ typedef struct {
 #endif /* !__ASSEMBLER__ */
 
 #endif /* !__KERN_MM_MEMLAYOUT_H__ */
-

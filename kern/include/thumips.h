@@ -81,6 +81,8 @@ outw(uint32_t port, uint32_t data) {
 
 #define TIMER0_IRQ       7
 
+#define GPU_BASE 0xba000000
+#define GPU_ROW_PTR 0xba040000
+
 
 #endif /* !__LIBS_THUMIPS_H__ */
-

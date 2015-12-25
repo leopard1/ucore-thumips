@@ -6,6 +6,7 @@
 #include <trap.h>
 #include <memlayout.h>
 #include <sync.h>
+#include <vga.h>
 
 /* stupid I/O delay routine necessitated by historical PC design flaws */
 static void
@@ -87,6 +88,7 @@ serial_putc(int c) {
     }else {
         serial_putc_sub(c);
     }
+    vga_putch(c);
 }
 
 /* serial_proc_data - get data from serial port */

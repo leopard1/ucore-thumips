@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <console.h>
+#include <vga.h>
 #include <kdebug.h>
 #include <picirq.h>
 #include <trap.h>
@@ -27,6 +28,7 @@ kern_init(void) {
     tlb_invalidate_all();
 
     pic_init();                 // init interrupt controller
+    vga_init();
     cons_init();                // init the console
     clock_init();               // init clock interrupt
 
@@ -57,4 +59,3 @@ kern_init(void) {
     //asm volatile("divu $1, $1, $1");
     cpu_idle();
 }
-
